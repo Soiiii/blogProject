@@ -8,6 +8,10 @@ public class webControllerTest {
         @GetMapping("/test/hello")
         public String hello(){
             System.out.println("test");
+            System.out.println("test");
+
+            System.out.println("test");
+
             return "<h1>hello spring boot</h1>" ;
 
     }
