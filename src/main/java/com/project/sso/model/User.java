@@ -1,11 +1,16 @@
 package com.project.sso.model;
 
-import org.hibernate.annotations.ColumnDefault;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class User {
     @Id
@@ -21,8 +26,8 @@ public class User {
     @Column(nullable=false, length=50)
     private String email;
 
-    @ColumnDefault("'user'")
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private RoleType role;
 
     @CreationTimestamp
     private Timestamp createDate;
