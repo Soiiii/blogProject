@@ -32,4 +32,6 @@ public class User {
     @CreationTimestamp
     private Timestamp createDate;
     private Timestamp updateDate;
+
+
 }
