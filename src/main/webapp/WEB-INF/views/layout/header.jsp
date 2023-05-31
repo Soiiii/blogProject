@@ -32,8 +32,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav">
-                <a href="/auth/loginForm">로그인</a></li>
-                <li><a href="/auth/joinForm">회원가입</a></li>
+                <a href="/user/loginForm">로그인</a></li>
+                <li><a href="/user/joinForm">회원가입</a></li>
               </ul>
               <ul class="nav navbar-nav">
                 <a href="/board/saveForm">글쓰기</a></li>
