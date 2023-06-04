@@ -2,6 +2,8 @@ let index={
     init: function(){
         $("#btn-save").on("click", ()=>{
             this.save();
+        $("#btn-login").on("click", ()=>{
+            this.save();
         });
     },
 
@@ -14,7 +16,7 @@ let index={
 
         $.ajax({
             type: "POST",
-            url: "/api/user",
+            url: "/sso/api/user",
             data: JSON.stringify(data),
             contentType:"application/json; charset=utf-8",
             dataType: "json"
@@ -24,7 +26,30 @@ let index={
         }).fail(function(error){
             alert(JSON.stringify(error));
         });
-    }
+    },
+
+
+    login:function(){
+        let data={
+            username:$("#username").val(),
+            password:$("#password").val(),
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/sso/api/user/login",
+            data: JSON.stringify(data),
+            contentType:"application/json; charset=utf-8",
+            dataType: "json"
+        }).done(function(resp){
+            alert("로그인 완료");
+            location.href="/sso";
+        }).fail(function(error){
+            alert(JSON.stringify(error));
+        });
+    },
+
+
 }
 
 index.init();

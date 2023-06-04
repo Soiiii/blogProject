@@ -3,7 +3,7 @@
 
 <div class="container">
 
-<form action="/auth/loginProc" method="post">
+<form>
   <div class="form-group">
     <label for="username">Username:</label>
     <input type="text" name="username" class="form-control" placeholder="Enter Username" id="username">
@@ -20,6 +20,6 @@
 
 </div>
 
-<script src="/sso/js/user.js"></script>
+<script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>
 </div>
