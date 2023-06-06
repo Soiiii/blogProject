@@ -32,7 +32,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
         <c:choose>
-            <c:when test="${empty sessionScope.principal}">
+            <c:when test="${empty principal}">
               <ul class="nav navbar-nav">
                 <a href="/loginForm">로그인</a></li>
                 <li><a href="/joinForm">회원가입</a></li>
