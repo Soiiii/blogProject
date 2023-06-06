@@ -31,7 +31,8 @@ dependencies {
 //	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.springframework.security:spring-security-taglibs'
 	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
-	implementation 'javax.servlet:jstl'
+//	implementation 'javax.servlet:jstl'
+	implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
 //	implementation 'org.springframework.boot:spring-boot-devtools:2.7.4'
 	compileOnly("org.springframework.boot:spring-boot-devtools")
 }
