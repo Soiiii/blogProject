@@ -34,8 +34,8 @@
         <c:choose>
             <c:when test="${empty principal}">
               <ul class="nav navbar-nav">
-                <a href="/loginForm">로그인</a></li>
-                <li><a href="/joinForm">회원가입</a></li>
+                <a href="/auth/loginForm">로그인</a></li>
+                <li><a href="/auth/joinForm">회원가입</a></li>
               </ul>
 
             </c:when>

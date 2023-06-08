@@ -3,7 +3,7 @@
 
 <div class="container">
 
-<form>
+<form action="/auth/loginProc" method="post">
   <div class="form-group">
     <label for="username">Username:</label>
     <input type="text" name="username" class="form-control" placeholder="Enter Username" id="username">
@@ -18,7 +18,7 @@
 </form>
 
 
-</div>
+
 
 <script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp"%>
