@@ -10,5 +10,4 @@ public class SsoApplication {
 		SpringApplication.run(SsoApplication.class, args);
 
 	}
-
 }
