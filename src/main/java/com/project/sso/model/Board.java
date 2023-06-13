@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -29,7 +28,6 @@ public class Board {
     @Lob
     private String content;
 
-    @ColumnDefault("0")
     private int count;
 
     //DB는 오브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다

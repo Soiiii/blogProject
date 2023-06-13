@@ -41,8 +41,8 @@
             </c:when>
             <c:otherwise>
               <ul class="nav navbar-nav">
-                <a href="/board/form">글쓰기</a></li>
-                <li><a href="/user/form">회원정보</a></li>
+                <a href="/board/saveForm">글쓰기</a></li>
+                <li><a href="/user/updateForm">회원정보</a></li>
                 <li><a href="/logout">로그아웃</a></li>
               </ul>
             </c:otherwise>

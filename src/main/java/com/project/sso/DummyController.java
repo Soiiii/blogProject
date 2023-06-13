@@ -35,14 +35,12 @@ public class DummyController {
     }
 
     @GetMapping("/dummy/user")
-    public List<User> pageList(@PageableDefault(size=4, sort="id", direction= Sort.Direction.DESC) Pageable pageable){
+    public Page<User> pageList(@PageableDefault(size=4, sort="id", direction= Sort.Direction.DESC) Pageable pageable){
         Page<User> pagingUser = userRepository.findAll(pageable);
         if(pagingUser.isLast()){
         }
         List<User> users = pagingUser.getContent();
-        return users;
-
-
+        return pagingUser;
     }
 
     @PostMapping("/dummy/join")
