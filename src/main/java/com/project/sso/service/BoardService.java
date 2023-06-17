@@ -22,6 +22,7 @@ public class BoardService {
         boardRepository.save(board);
     }
 
+    @Transactional(readOnly = true)
     public Page<Board> list(Pageable pageable){
         return boardRepository.findAll(pageable);
     }
@@ -31,5 +32,10 @@ public class BoardService {
                 .orElseThrow(()->{
                     return new IllegalArgumentException("글 상세보기 실패: 아이디 찾기 실패");
                 });
+    }
+
+    @Transactional
+    public void delete(int id){
+        boardRepository.deleteById(id);
     }
 }
