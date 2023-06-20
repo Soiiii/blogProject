@@ -14,7 +14,7 @@ public class BoardController {
     @Autowired
     private BoardService boardService;
 
-    @GetMapping({"","/"})
+    @GetMapping({"/"})
     public String index(Model model, @PageableDefault(size=3, sort="id", direction= Sort.Direction.DESC)Pageable pageable
     ){
         model.addAttribute("boards", boardService.list(pageable));
@@ -27,10 +27,16 @@ public class BoardController {
         return "board/detail";
     }
 
+    @GetMapping("/board/{id}/updateForm")
+    public String updateForm(@PathVariable int id, Model model){
+        model.addAttribute("board", boardService.details(id));
+        return "board/updateForm";
+    }
 
     // user 권한 필요
     @GetMapping("/board/saveForm")
     public String saveForm(){
         return "board/saveForm";
     }
+
 }

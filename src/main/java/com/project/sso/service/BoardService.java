@@ -27,6 +27,7 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
+    @Transactional(readOnly = true)
     public Board details(int id){
         return boardRepository.findById(id)
                 .orElseThrow(()->{
@@ -37,5 +38,14 @@ public class BoardService {
     @Transactional
     public void delete(int id){
         boardRepository.deleteById(id);
+    }
+
+    public void edit(int id, Board requestBoard){
+        Board board = boardRepository.findById(id)
+        .orElseThrow(()->{
+            return new IllegalArgumentException("글 찾기 실패: 아이디 찾기 실패");
+        });
+        board.setTitle(requestBoard.getTitle());
+        board.setContent(requestBoard.getContent());
     }
 }
