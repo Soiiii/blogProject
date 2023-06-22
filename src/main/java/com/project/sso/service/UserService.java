@@ -26,7 +26,7 @@ public class UserService {
     }
 
     @Transactional
-    public void userEdit(User user){
+    public void userUpdate(User user){
         User persistance = userRepository.findById(user.getId()).orElseThrow(()->{
             return new IllegalArgumentException("회원 찾기 실패");
         });
@@ -34,5 +34,6 @@ public class UserService {
         String encPassword = encoder.encode(rawPassword);
         persistance.setPassword(encPassword);
         persistance.setEmail(user.getEmail());
+
     }
 }

@@ -1,5 +1,7 @@
 package com.project.sso.controller;
 
+import com.project.sso.config.auth.PrincipalDetail;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -16,8 +18,8 @@ public class UserController {
         return "user/loginForm";
     }
 
-    @GetMapping("/auth/updateForm")
-    public String updateForm(){
+    @GetMapping("/user/updateForm")
+    public String updateForm(@AuthenticationPrincipal PrincipalDetail principal){
         return "user/updateForm";
     }
 }

@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PrincipalDetailService principalDetailService;
 
+
     @Bean // 스프링 IOC 컨테이너에 등록
     public BCryptPasswordEncoder encodePWD(){ //비밀번호 해쉬 암호화
         return new BCryptPasswordEncoder();
