@@ -10,16 +10,20 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Board {
-
+public class Board_new {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
+
+    private int book_num;
+
+    private int status;
 
     @Column(nullable = false, length=100)
     private String title;
@@ -29,15 +33,24 @@ public class Board {
 
     private int count;
 
-    //DB는 오브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="userId")
     private User user;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="categoryId")
+    private Category category;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name="commentId")
+    private Comment comment;
+
     @OneToMany(mappedBy="board", fetch = FetchType.EAGER)
-    private List<Reply> reply;
+    private List<Comment> commentList;
 
     @CreationTimestamp
-    private Timestamp createDate;
+    private Timestamp create_at;
+    private Timestamp update_at;
+
 
 }

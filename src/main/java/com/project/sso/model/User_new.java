@@ -12,26 +12,31 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class User {
+public class User_new {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
-    @Column(nullable=false, length=20)
-    private String username;
+    @Column(nullable=false, length=30)
+    private String name;
+
+    @Column(nullable=false, length=200)
+    private String email;
 
     @Column(nullable=false, length=100)
     private String password;
 
-    @Column(nullable=false, length=50)
-    private String email;
+    private int gender;
+
+    @Column(nullable=false, length=20)
+    private String country;
+
+    private int status;
 
     @Enumerated(EnumType.STRING)
     private RoleType role;
 
     @CreationTimestamp
-    private Timestamp createDate;
-    private Timestamp updateDate;
-
+    private Timestamp create_at;
 
 }
