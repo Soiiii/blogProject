@@ -19,9 +19,9 @@ public class Bookmark {
 
     @ManyToOne
     @JoinColumn(name="boardId")
-    private Board board;
+    private Board_new board;
 
     @ManyToOne
     @JoinColumn(name="userId")
-    private User user;
+    private User_new user;
 }

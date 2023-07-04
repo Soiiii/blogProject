@@ -38,15 +38,22 @@ public class Board_new {
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="countryId")
+    private Country country;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="categoryId")
     private Category category;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name="commentId")
-    private Comment comment;
+//    @OneToMany(fetch = FetchType.EAGER)
+//    @JoinColumn(name="commentId")
+//    private Comment comment;
 
-    @OneToMany(mappedBy="board", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="board", fetch = FetchType.LAZY)
     private List<Comment> commentList;
+
+    @OneToMany(mappedBy="board", fetch = FetchType.LAZY)
+    private List<Bookmark> bookmarkList;
 
     @CreationTimestamp
     private Timestamp create_at;
