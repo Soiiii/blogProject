@@ -4,7 +4,6 @@ import com.project.sso.model.RoleType;
 import com.project.sso.model.User;
 import com.project.sso.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,14 +12,14 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder encoder;
+//    @Autowired
+//    private BCryptPasswordEncoder encoder;
 
     @Transactional
     public void join(User user){
         String rawPassword = user.getPassword();
-        String encPassword = encoder.encode(rawPassword);
-        user.setPassword(encPassword);
+//        String encPassword = encoder.encode(rawPassword);
+        user.setPassword(rawPassword);
         user.setRole((RoleType.USER));
         userRepository.save(user);
     }
@@ -31,8 +30,8 @@ public class UserService {
             return new IllegalArgumentException("회원 찾기 실패");
         });
         String rawPassword = user.getPassword();
-        String encPassword = encoder.encode(rawPassword);
-        persistance.setPassword(encPassword);
+//        String encPassword = encoder.encode(rawPassword);
+        persistance.setPassword(rawPassword);
         persistance.setEmail(user.getEmail());
 
     }
